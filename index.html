@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b1422" />
+<meta name="description" content="Phantom Classrooms helps campus teams understand occupancy and energy signals, investigate probable waste, and keep people-first safeguards in every recommendation." />
+<meta name="color-scheme" content="light" />
+<title>Phantom Classrooms | Campus Energy Intelligence</title>
+<style>
+:root{--bg:#f4f7fb;--panel:#fff;--ink:#172235;--muted:#718096;--line:#e4eaf2;--nav:#0b1220;--nav2:#111c2e;--teal:#10b7a4;--teal-dark:#087f78;--mint:#ddfaf3;--amber:#efaa43;--amber-bg:#fff4dd;--red:#dd626a;--red-bg:#ffeaed;--blue:#5387f4;--blue-bg:#eaf0ff;--green:#249b72;--shadow:0 12px 32px rgba(25,45,75,.055);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(16,183,164,.26);outline-offset:2px}.app{min-height:100vh;display:grid;grid-template-columns:246px minmax(0,1fr)}
+.sidebar{background:var(--nav);color:#d9e2f0;display:flex;flex-direction:column;padding:25px 16px 18px;min-height:100vh;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;padding:0 12px 29px}.brand-mark{height:36px;width:36px;border-radius:12px;background:linear-gradient(145deg,#29dec4,#078b88);display:grid;place-items:center;color:#062c32;box-shadow:0 5px 20px #10b7a433}.brand-name{font-size:16px;font-weight:760;letter-spacing:-.4px;color:#fff}.brand-sub{font-size:10px;letter-spacing:1.25px;text-transform:uppercase;color:#7f91ab;margin-top:4px}.nav-label{font-size:10px;color:#6e8099;letter-spacing:1.5px;text-transform:uppercase;padding:15px 13px 8px}.nav-item{border:0;background:transparent;color:#9faec2;width:100%;display:flex;align-items:center;gap:12px;text-align:left;padding:11px 13px;border-radius:11px;margin:2px 0;font-size:13px;transition:.15s}.nav-item svg{width:17px;height:17px;opacity:.9}.nav-item:hover{color:#fff;background:#ffffff0b}.nav-item.active{color:#d9fff8;background:#123a42;box-shadow:inset 3px 0 #16c5ad}.nav-count{font-size:10px;background:#b77b24;color:#fff;border-radius:20px;padding:3px 7px;margin-left:auto}.sidebar-bottom{margin-top:auto}.campus-card{border:1px solid #ffffff17;background:#ffffff08;border-radius:13px;padding:14px;margin:12px 4px}.campus-card .tiny{font-size:10px;color:#7e90a9;text-transform:uppercase;letter-spacing:1px}.campus-name{font-size:12px;font-weight:650;color:#e6edf7;margin-top:8px}.campus-meta{font-size:11px;color:#8c9db3;margin-top:4px;display:flex;align-items:center;gap:6px}.green-dot{width:6px;height:6px;border-radius:50%;background:#35d0a3;display:inline-block}.profile{padding:15px 10px 0;border-top:1px solid #ffffff15;display:flex;gap:10px;align-items:center}.avatar{width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:#263950;color:#c4fff1;font-size:11px;font-weight:700}.profile strong{display:block;font-size:12px;color:#edf3fb;font-weight:650}.profile small{color:#8193ab;font-size:10px}
+main{min-width:0;padding:28px 34px 36px;max-width:1700px;width:100%;margin:0 auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:27px}.crumb{color:var(--muted);font-size:12px}.crumb strong{color:#243149;font-weight:650}.top-actions{display:flex;align-items:center;gap:10px}.data-pill{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:30px;padding:8px 12px;color:#69788d;font-size:11px}.data-pill .dot{background:#f0ae44;width:7px;height:7px;border-radius:50%}.icon-btn{height:36px;width:36px;border:1px solid var(--line);background:#fff;border-radius:11px;display:grid;place-items:center;color:#66758c}.icon-btn svg{width:16px;height:16px}.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:23px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1.7px;color:var(--teal-dark);font-weight:750;margin-bottom:8px}.page-head h1{font-size:28px;letter-spacing:-1.1px;margin:0;font-weight:760;color:#152238}.page-head p{margin:8px 0 0;color:#738197;font-size:13px;line-height:1.5}.head-buttons{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:12px;font-weight:650;background:#fff;color:#536279;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.16s}.btn:hover{transform:translateY(-1px);box-shadow:0 5px 12px #12213a0e}.btn svg{width:15px;height:15px}.btn-primary{background:#0b3438;color:#e9fffb;border-color:#0b3438}.btn-primary:hover{background:#115057}.btn-soft{background:#e6fbf5;color:#08786e;border-color:#d0f2e9}.btn-danger{background:#fff0f0;color:#ae3e48;border-color:#f7d4d7}.btn-small{padding:7px 10px;font-size:11px;border-radius:8px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:18px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 19px;box-shadow:var(--shadow);min-width:0;position:relative;overflow:hidden}.stat-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#75849a;font-size:11px;font-weight:550}.stat-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#e4fbf6;color:#079b8c}.stat-icon svg{width:17px;height:17px}.stat-icon.amber{background:#fff2dc;color:#bd8026}.stat-icon.blue{background:#e9efff;color:#4a77e8}.stat-icon.purple{background:#f0eafe;color:#8a62ce}.stat-value{font-size:27px;letter-spacing:-1px;font-weight:760;margin:14px 0 5px;color:#152238;white-space:nowrap}.stat-foot{font-size:10px;color:#8794a6;display:flex;align-items:center;gap:5px}.trend-up{color:#bb7c25;font-weight:700}.trend-good{color:#16866e;font-weight:700}.stat-spark{position:absolute;bottom:0;right:0;width:86px;height:35px;opacity:.12}
+.grid-main{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(280px,.92fr);gap:17px;margin-bottom:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}.panel-head{padding:19px 20px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.panel-title{font-size:14px;font-weight:750;letter-spacing:-.25px;margin:0;color:#19263b}.panel-sub{font-size:11px;color:#8a96a7;margin-top:5px;line-height:1.4}.plain-link{border:0;background:transparent;color:#138f82;font-size:11px;font-weight:700;padding:5px 0}.chart-wrap{padding:0 17px 11px}.chart-legend{display:flex;gap:17px;padding:0 3px 8px;font-size:10px;color:#8692a4}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:3px;margin-right:6px}.chart-svg{width:100%;height:177px;display:block;overflow:visible}.chart-axis{fill:#9aa5b4;font-size:9px}.chart-note{border-top:1px solid #edf1f6;margin-top:8px;padding:12px 4px 2px;display:flex;align-items:center;gap:8px;color:#69788c;font-size:10px}.chart-note b{color:#26384e}.mini-tag{font-size:9px;font-weight:750;border-radius:20px;padding:4px 7px;background:#e2f7ef;color:#12805d}.risk-panel .panel-head{padding-bottom:10px}.risk-list{padding:0 14px 12px}.risk-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 6px;border-top:1px solid #f0f3f7}.risk-number{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#fff0df;color:#b77922;font-size:11px;font-weight:800}.risk-number.high{background:#ffe7e9;color:#ba454e}.risk-number.medium{background:#fff4df;color:#a97625}.risk-room{font-weight:700;font-size:11px;color:#27364a}.risk-detail{font-size:10px;color:#8a96a7;margin-top:4px}.risk-right{text-align:right}.risk-score{font-size:17px;font-weight:800;letter-spacing:-.5px}.risk-score.high{color:#ca535b}.risk-score.medium{color:#c38b37}.risk-score.low{color:#16977c}.risk-bar{margin-top:5px;width:58px;height:4px;border-radius:4px;background:#edf1f5;overflow:hidden}.risk-bar span{display:block;height:100%;border-radius:4px;background:#e3a344}.risk-bar .red{background:#da6971}.risk-bar .teal{background:#18af9d}.bottom-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(270px,.75fr);gap:17px}.table-wrap{overflow-x:auto;padding:0 15px 12px}.room-table{width:100%;border-collapse:collapse;white-space:nowrap}.room-table th{text-align:left;font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:#96a0af;font-weight:700;padding:12px 9px;border-bottom:1px solid #edf1f6}.room-table td{padding:13px 9px;border-bottom:1px solid #f0f3f7;font-size:11px;color:#56657b}.room-table tr:last-child td{border-bottom:0}.room-table tbody tr{cursor:pointer}.room-table tbody tr:hover{background:#f8fbfd}.room-name{font-size:11px;font-weight:750;color:#26354a}.room-id{font-size:9px;color:#a1aab7;margin-top:4px}.status{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:20px;font-size:9px;font-weight:750}.status:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.status.waste{background:#fff0df;color:#b77a26}.status.verify{background:#fff4da;color:#ad7620}.status.ok{background:#e3f8ef;color:#188566}.status.override{background:#eaf0ff;color:#5578ca}.conf-cell{display:flex;align-items:center;gap:7px}.conf-track{width:40px;height:4px;border-radius:3px;background:#edf1f5;overflow:hidden}.conf-track span{display:block;height:100%;background:#23b49c}.row-action{border:0;background:transparent;color:#119386;font-size:10px;font-weight:750;padding:4px}
+.activity-list{padding:0 18px 10px}.activity-item{display:grid;grid-template-columns:27px minmax(0,1fr);gap:10px;padding:11px 0;border-top:1px solid #f0f3f7}.activity-symbol{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;background:#e2f9f2;color:#168f7e}.activity-symbol.amber{background:#fff2da;color:#b67d26}.activity-symbol.blue{background:#eaf0ff;color:#557ee3}.activity-symbol svg{width:13px;height:13px}.activity-text{font-size:10px;color:#59687c;line-height:1.5}.activity-text strong{color:#28364b;font-weight:750}.activity-time{font-size:9px;color:#a2adbb;margin-top:3px}.kindness-strip{margin-top:17px;display:flex;align-items:center;gap:13px;background:#e6faf4;border:1px solid #ccefe5;border-radius:14px;padding:14px 17px;color:#27645f}.kindness-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#cdf3e9;color:#138b7d;flex-shrink:0}.kindness-icon svg{width:18px;height:18px}.kindness-copy{min-width:0;flex:1}.kindness-copy strong{display:block;font-size:12px;color:#145b56}.kindness-copy span{font-size:10px;color:#54817c;line-height:1.4;display:block;margin-top:3px}.kindness-strip .btn{white-space:nowrap;background:#fff;border-color:#c8eae2;color:#1e766d}
+.image-stage{margin-top:12px;padding:10px;border:1px solid var(--line);border-radius:13px;background:#101a29;overflow:hidden}.image-stage[hidden]{display:none!important}#detection-canvas{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:8px}.model-status{margin-top:11px;border:1px solid #e4eaf2;background:#f7f9fc;color:#65758a;border-radius:10px;padding:11px 12px;font-size:11px;line-height:1.5}.model-status.good{background:#e9faf4;border-color:#c9f0e3;color:#13775f}.model-status.warn{background:#fff5df;border-color:#f5e2b8;color:#94651f}.model-status.loading{background:#eaf0ff;border-color:#d8e3ff;color:#3e65bd}.detection-summary{margin-top:10px;border:1px solid #edf1f6;border-radius:10px;padding:11px 12px;color:#68778c;font-size:11px;line-height:1.55}.detection-summary strong{color:#24344a}.image-actions{display:flex;gap:8px;margin-top:10px}.image-actions .btn{flex:1}.camera-drop input{max-width:100%}.btn:disabled{opacity:.55;cursor:wait;transform:none;box-shadow:none}.view{display:none}.view.active{display:block}.section-panel{padding:20px}.filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.select{border:1px solid var(--line);border-radius:9px;background:#fff;padding:9px 11px;color:#5d6a7e;font-size:11px}.room-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:15px}.room-card{border:1px solid var(--line);background:#fff;border-radius:14px;padding:16px;box-shadow:var(--shadow);min-width:0}.room-card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.room-card h3{font-size:13px;margin:0;color:#213149}.room-card .room-id{font-size:10px}.room-card .status{margin-top:12px}.room-energy{display:flex;align-items:end;gap:5px;margin:16px 0 10px}.room-energy strong{font-size:23px;letter-spacing:-1px}.room-energy span{font-size:10px;color:#92a0b0;margin-bottom:4px}.room-card-meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px 0;border-top:1px solid #eff2f6;border-bottom:1px solid #eff2f6}.room-card-meta label{display:block;color:#9aa4b2;font-size:9px;margin-bottom:5px}.room-card-meta b{font-size:11px;color:#4d5e73}.room-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.score-pill{font-size:10px;font-weight:800;color:#bf7f2b}.empty-state{padding:35px;text-align:center;color:#8491a3;font-size:12px}.signals-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.signal-form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:10px;color:#7e8ca0;font-weight:650}.field input,.field select{border:1px solid #dfe6ef;border-radius:9px;padding:10px;background:#fff;color:#35445a;min-width:0;width:100%}.field.full{grid-column:1/-1}.toggle-line{display:flex;align-items:center;gap:9px;color:#596a80;font-size:11px}.toggle-line input{accent-color:#0da997;width:15px;height:15px}.camera-drop{border:1.5px dashed #cbd6e4;border-radius:13px;background:#f9fbfd;min-height:164px;padding:17px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}.camera-drop svg{width:28px;height:28px;color:#12998a}.camera-drop strong{font-size:12px}.camera-drop span{font-size:10px;color:#8794a6;line-height:1.45}.camera-drop input{max-width:220px;font-size:10px}.preview-img{max-width:100%;max-height:160px;object-fit:contain;border-radius:8px;margin-top:4px}.conflict-box{background:#fff5df;border:1px solid #fae6b7;border-radius:11px;padding:12px;color:#91621e;font-size:11px;line-height:1.5;margin-top:13px}.conflict-box strong{display:block;margin-bottom:4px}.explainer{display:grid;grid-template-columns:1fr 1fr;gap:13px}.explainer-card{border:1px solid var(--line);border-radius:12px;padding:14px}.explainer-card strong{font-size:12px;display:block;margin-bottom:7px}.explainer-card p{font-size:11px;line-height:1.55;color:#78869a;margin:0}.rule-list{padding-left:18px;margin:10px 0 0;color:#69798e;font-size:11px;line-height:1.8}.trend-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:8px 0 17px}.trend-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.trend-card span{display:block;font-size:10px;color:#8290a3}.trend-card strong{display:block;font-size:24px;letter-spacing:-.8px;margin:10px 0 5px}.trend-card small{font-size:10px;color:#17977a}.modal-backdrop{position:fixed;z-index:20;inset:0;background:#0b1422a6;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 90px #0003;padding:23px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:17px}.modal-head h2{margin:0;font-size:18px;letter-spacing:-.4px}.modal-head p{margin:6px 0 0;color:#8390a1;font-size:11px;line-height:1.5}.modal-close{border:0;background:#f0f3f7;color:#6c7b8f;border-radius:8px;width:29px;height:29px}.modal-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}.toast-wrap{position:fixed;right:22px;bottom:22px;z-index:30;display:flex;flex-direction:column;gap:8px}.toast{background:#122b35;color:#e8fff9;border-radius:11px;padding:12px 15px;box-shadow:0 10px 32px #0002;font-size:11px;max-width:340px;animation:pop .2s ease}.toast small{display:block;color:#a9d8d0;font-size:10px;margin-top:4px}@keyframes pop{from{transform:translateY(9px);opacity:0}to{transform:translateY(0);opacity:1}}.footer-note{text-align:center;padding:18px 0 0;font-size:10px;color:#a0aaba}.footer-note strong{color:#708096}
+@media(max-width:1150px){main{padding:24px 22px}.app{grid-template-columns:220px minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.room-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-main{grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr)}}
+@media(max-width:830px){.app{display:block}.sidebar{position:relative;height:auto;min-height:0;padding:15px;display:block}.brand{padding:0 6px 12px}.sidebar nav,.nav-label,.campus-card,.profile{display:none}.sidebar:after{content:"Demo workspace · simulated signals";color:#8292a9;font-size:11px;margin-left:53px}.grid-main,.bottom-grid,.signals-grid{grid-template-columns:1fr}.topbar{margin-bottom:20px}.page-head{align-items:flex-start;flex-direction:column}.head-buttons{width:100%}.page-head h1{font-size:25px}.room-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.kindness-strip{align-items:flex-start;flex-wrap:wrap}.kindness-strip .btn{margin-left:46px}.explainer{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){main{padding:18px 13px}.data-pill{display:none}.stats{gap:9px}.stat{padding:13px}.stat-value{font-size:23px;margin-top:11px}.stat-top{align-items:flex-start}.stat-icon{width:29px;height:29px}.room-cards,.trend-cards{grid-template-columns:1fr}.explainer{grid-template-columns:1fr}.signal-form,.modal-fields{grid-template-columns:1fr}.field.full{grid-column:auto}.head-buttons .btn{flex:1}.top-actions{gap:6px}.page-head h1{font-size:23px}.panel-head{padding:16px 15px 10px}.activity-list{padding-left:14px;padding-right:14px}.risk-list{padding-left:11px;padding-right:11px}.chart-svg{height:150px}.kindness-strip{padding:12px}.kindness-copy{flex-basis:calc(100% - 50px)}.kindness-strip .btn{margin-left:0}}
+
+
+/* ─────────────────────────────────────────────────────────────────────
+   Phantom UI refinement layer — keeps the original demo functionality
+   while sharpening hierarchy, spacing, focus states, and small screens.
+   ───────────────────────────────────────────────────────────────────── */
+:root{
+  --bg:#f5f7fa;
+  --panel:#ffffff;
+  --ink:#17283a;
+  --muted:#718096;
+  --line:#e3e9f1;
+  --nav:#0b1422;
+  --nav2:#132238;
+  --teal:#0fb7a4;
+  --teal-dark:#087c72;
+  --mint:#e1f8f3;
+  --shadow:0 8px 26px rgba(19,35,58,.055),0 1px 2px rgba(19,35,58,.025);
+  --radius:16px;
+}
+html{scroll-padding-top:18px}
+body{background:linear-gradient(180deg,#f8fafc 0%,#f3f6fa 100%);color:var(--ink);letter-spacing:.005em}
+.app{grid-template-columns:252px minmax(0,1fr)}
+.sidebar{
+  background:radial-gradient(ellipse at 2% 0%,rgba(20,184,166,.12),transparent 34%),linear-gradient(180deg,#101d2e 0%,#0b1422 78%);
+  border-right:1px solid #203047;padding:27px 16px 18px;box-shadow:10px 0 32px rgba(9,22,39,.035)
+}
+.brand{padding-bottom:31px}
+.brand-mark{width:39px;height:39px;border-radius:13px;box-shadow:0 0 0 5px rgba(16,183,164,.075),0 8px 22px rgba(16,183,164,.2)}
+.brand-name{font-size:17px;letter-spacing:-.55px}
+.brand-sub{font-size:9px;letter-spacing:1.45px}
+.nav-label{font-size:9px;letter-spacing:1.7px;padding-top:17px}
+.nav-item{min-height:42px;padding:11px 13px;border-radius:10px;font-weight:550;letter-spacing:.005em}
+.nav-item.active{background:linear-gradient(90deg,rgba(16,183,164,.18),rgba(16,183,164,.075));box-shadow:inset 3px 0 #28d7bd;color:#e3fff9}
+.nav-item.active svg{color:#45dfc8}
+.nav-count{min-width:22px;text-align:center;background:#9b6d2b;color:#fff1cf}
+.campus-card{background:linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border-color:#ffffff1b}
+.green-dot{box-shadow:0 0 0 4px rgba(53,208,163,.1)}
+main{padding:28px clamp(22px,2.5vw,40px) 40px;max-width:1780px}
+.topbar{padding-bottom:17px;margin-bottom:27px;border-bottom:1px solid rgba(220,228,238,.8)}
+.crumb{font-size:11px;letter-spacing:.01em}
+.crumb strong{color:#28394e}
+.data-pill{padding:8px 13px;background:rgba(255,255,255,.88);box-shadow:0 2px 8px rgba(20,40,68,.025);font-size:10px;letter-spacing:.045em}
+.data-pill .dot{box-shadow:0 0 0 3px rgba(240,174,68,.14)}
+.icon-btn{transition:transform .16s ease,border-color .16s ease,background .16s ease;box-shadow:0 2px 6px rgba(16,35,58,.025)}
+.icon-btn:hover{border-color:#c4d1df;background:#f8fbfd;transform:translateY(-1px)}
+.page-head{margin-bottom:25px;align-items:center}
+.eyebrow{font-size:9px;letter-spacing:1.8px;margin-bottom:9px;color:#087e72}
+.page-head h1{font-size:clamp(27px,2.2vw,35px);line-height:1.15;letter-spacing:-1.25px;font-weight:780;color:#17283a}
+.page-head p{max-width:660px;color:#6d7e91;font-size:13px;line-height:1.65;margin-top:9px}
+.head-buttons{align-items:center}
+.btn{min-height:37px;border-radius:10px;padding:10px 14px;font-size:11px;letter-spacing:.005em;box-shadow:0 1px 2px rgba(18,40,65,.025);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(18,40,65,.085);border-color:#d0dbe6}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:linear-gradient(135deg,#0c393d,#0b4a4e);border-color:#0b4145;box-shadow:0 3px 9px rgba(8,71,73,.1)}
+.btn-primary:hover{background:linear-gradient(135deg,#104b4e,#12615e);border-color:#12615e}
+.btn-soft{background:#e6f8f3;color:#087769;border-color:#cceee4}
+.stats{gap:15px;margin-bottom:19px}
+.stat{padding:19px 20px;border-radius:17px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.stat:hover{transform:translateY(-2px);border-color:#d8e6e9;box-shadow:0 14px 28px rgba(20,45,70,.075)}
+.stat-top{font-size:10px;color:#718196;letter-spacing:.015em}
+.stat-icon{width:36px;height:36px;border-radius:12px;background:#e4f8f4}
+.stat-value{font-size:29px;letter-spacing:-1.2px;margin:15px 0 6px;font-variant-numeric:tabular-nums}
+.stat-foot{font-size:10px;line-height:1.5}
+.grid-main,.bottom-grid{gap:18px;margin-bottom:19px;align-items:stretch}
+.panel{border-color:#e3e9f1;border-radius:17px;box-shadow:var(--shadow);overflow:hidden}
+.panel-head{padding:20px 21px 13px}
+.panel-title{font-size:13px;letter-spacing:-.15px;font-weight:760;color:#1e2e43}
+.panel-sub{color:#8492a4;font-size:10px;line-height:1.55}
+.chart-wrap{padding:0 20px 14px}
+.chart-legend{font-size:10px;gap:20px;color:#7d8b9d}
+.chart-svg{height:185px}
+.chart-note{font-size:10px;color:#67788d;padding-top:13px}
+.mini-tag{letter-spacing:.045em;font-size:8px;padding:5px 8px}
+.risk-list{padding-left:17px;padding-right:17px}
+.risk-row{padding:13px 5px;gap:11px;border-top-color:#eff3f7}
+.risk-number{width:31px;height:31px;border-radius:10px}
+.risk-room{font-size:11px}
+.risk-detail{font-size:10px;line-height:1.45}
+.risk-score{font-size:18px;font-variant-numeric:tabular-nums}
+.room-table th{font-size:8px;letter-spacing:.9px;padding:13px 10px}
+.room-table td{padding:14px 10px;font-size:10px}
+.room-table tbody tr{transition:background .14s ease}
+.room-table tbody tr:hover{background:#f3fbf9}
+.status{font-size:8px;letter-spacing:.01em;padding:6px 9px}
+.activity-list{padding:0 20px 12px}
+.activity-item{padding:12px 0;border-top-color:#edf2f6}
+.activity-text{font-size:10px;line-height:1.6}
+.kindness-strip{border-radius:15px;padding:15px 18px;background:linear-gradient(100deg,#e6f8f3,#effbf7);border-color:#cfeee4;box-shadow:0 4px 12px rgba(12,104,88,.025)}
+.kindness-copy strong{font-size:12px;letter-spacing:-.1px}
+.kindness-copy span{font-size:10px;line-height:1.6}
+.section-panel{padding:22px}
+.select,.field input,.field select{border-color:#dce5ee;border-radius:10px;background-color:#fff;transition:border-color .15s ease,box-shadow .15s ease}
+.select:hover,.field input:hover,.field select:hover{border-color:#becdd9}
+.field input:focus,.field select:focus,.select:focus{border-color:#0da995;box-shadow:0 0 0 3px rgba(15,183,164,.1);outline:none}
+.field label{font-size:10px;color:#6d7f93;letter-spacing:.01em}
+.signal-form{gap:15px}
+.conflict-box{border-radius:12px;line-height:1.65}
+.camera-drop{border:1.5px dashed #c5d6e2;border-radius:15px;background:linear-gradient(180deg,#f9fcfd,#f5fafb);min-height:175px;transition:background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.camera-drop:hover,.camera-drop:focus-within{border-color:#16b9a5;background:#f0fbf8;box-shadow:inset 0 0 0 1px rgba(22,185,165,.05)}
+.camera-drop svg{width:31px;height:31px;padding:6px;box-sizing:content-box;background:#e0f7f1;border-radius:12px}
+.camera-drop strong{font-size:12px;color:#25384c}
+.camera-drop span{font-size:10px;line-height:1.6}
+.camera-drop input{width:100%;max-width:265px;min-width:0;color:#6c7c8e;font-size:10px}
+.camera-drop input::file-selector-button{border:1px solid #d4e3e8;background:#fff;color:#31566a;padding:7px 10px;border-radius:8px;font:600 10px system-ui,sans-serif;margin-right:8px;cursor:pointer}
+.image-stage{border-radius:14px;padding:10px;background:linear-gradient(145deg,#101a29,#15283a);border-color:#22364a}
+#detection-canvas{max-height:420px}
+.model-status,.detection-summary{border-radius:12px;font-size:10px;line-height:1.65;padding:12px 13px}
+.model-status{background:#f6f9fc}
+.model-status.good{background:#eefaf6;border-color:#cceee3;color:#126d5c}
+.model-status.warn{background:#fff8e9;border-color:#f4e4bf;color:#86601f}
+.model-status.loading{background:#f0f4ff;border-color:#dce5ff;color:#3c62ad}
+.detection-summary{background:#fafcfe;border-color:#e7edf4;color:#63758a}
+.detection-summary strong{color:#20364b}
+.room-card{border-radius:15px;padding:17px;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.room-card:hover{transform:translateY(-2px);border-color:#cce4df;box-shadow:0 12px 26px rgba(19,45,64,.075)}
+.room-card h3{letter-spacing:-.1px}
+.room-energy strong,.trend-card strong{font-variant-numeric:tabular-nums}
+.explainer-card{border-radius:13px;padding:15px;background:linear-gradient(180deg,#fff,#fbfcfe)}
+.explainer-card strong{color:#2b4055}
+.explainer-card p{line-height:1.7}
+.trend-card{border-radius:15px;box-shadow:var(--shadow);transition:transform .16s ease,border-color .16s ease}
+.trend-card:hover{transform:translateY(-1px);border-color:#d3e4e6}
+.modal{border:1px solid rgba(255,255,255,.65);border-radius:20px;box-shadow:0 30px 100px rgba(3,15,28,.3);padding:25px}
+.modal-head h2{font-size:19px;color:#1b2c41}
+.modal-actions .btn{min-height:36px}
+.footer-note{border-top:1px solid rgba(220,228,238,.75);margin-top:22px;padding:18px 8px 0;letter-spacing:.025em;line-height:1.6}
+:focus-visible{outline:3px solid rgba(15,183,164,.32);outline-offset:3px}
+@media(min-width:1500px){main{padding-left:42px;padding-right:42px}.stats{gap:17px}.grid-main,.bottom-grid{gap:20px}}
+@media(max-width:1150px){main{padding:24px 22px}.app{grid-template-columns:226px minmax(0,1fr)}.panel-head{padding-left:18px;padding-right:18px}}
+@media(max-width:830px){
+  .app{display:block}
+  .sidebar{position:relative;height:auto;min-height:0;padding:15px 16px 12px;display:block;border-right:0;border-bottom:1px solid #26364a;box-shadow:0 8px 24px rgba(9,22,39,.07)}
+  .brand{padding:0 5px 12px}
+  .sidebar nav{display:flex;flex-flow:row nowrap;align-items:center;gap:5px;overflow-x:auto;padding:7px 1px 2px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .sidebar nav::-webkit-scrollbar{display:none}
+  .sidebar .nav-label{display:none}
+  .sidebar .nav-item{width:auto;flex:0 0 auto;white-space:nowrap;min-height:38px;margin:0;padding:9px 11px;font-size:11px;gap:7px}
+  .sidebar .nav-item svg{width:15px;height:15px}
+  .sidebar .nav-item.active{box-shadow:inset 0 -2px #28d7bd}
+  .sidebar .nav-count{padding:2px 5px;min-width:18px}
+  .campus-card,.profile{display:none}
+  .sidebar:after{display:none;content:none}
+  main{padding:22px 22px 32px}
+  .topbar{padding-bottom:13px;margin-bottom:23px}
+  .page-head{gap:14px}
+  .grid-main,.bottom-grid,.signals-grid{grid-template-columns:1fr}
+  .page-head{align-items:flex-start;flex-direction:column}
+  .head-buttons{width:100%}
+  .page-head h1{font-size:28px}
+  .room-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kindness-strip{align-items:flex-start;flex-wrap:wrap}
+  .kindness-strip .btn{margin-left:47px}
+}
+@media(max-width:560px){
+  main{padding:17px 12px 26px}
+  .sidebar{padding:13px 12px 10px}
+  .brand-mark{width:35px;height:35px}
+  .brand-name{font-size:16px}
+  .sidebar .nav-item{padding:9px 10px}
+  .data-pill{display:none}
+  .stats{gap:9px;margin-bottom:13px}
+  .stat{padding:13px 12px;border-radius:14px}
+  .stat-top{font-size:9px;line-height:1.35;align-items:flex-start}
+  .stat-value{font-size:23px;margin-top:11px}
+  .stat-foot{font-size:9px;display:block}
+  .stat-icon{width:29px;height:29px;border-radius:9px}
+  .room-cards,.trend-cards{grid-template-columns:1fr}
+  .explainer{grid-template-columns:1fr}
+  .signal-form,.modal-fields{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .head-buttons .btn{flex:1}
+  .top-actions{gap:6px}
+  .page-head h1{font-size:25px;letter-spacing:-.9px}
+  .page-head p{font-size:12px}
+  .panel-head{padding:16px 15px 11px}
+  .section-panel{padding:16px}
+  .activity-list{padding-left:14px;padding-right:14px}
+  .risk-list{padding-left:11px;padding-right:11px}
+  .chart-wrap{padding:0 13px 12px}
+  .chart-svg{height:145px}
+  .kindness-strip{padding:12px;gap:10px}
+  .kindness-copy{flex-basis:calc(100% - 50px)}
+  .kindness-strip .btn{margin-left:0}
+  .modal{padding:18px;border-radius:17px}
+  .modal-actions{flex-wrap:wrap}
+  .modal-actions .btn{flex:1}
+  .toast-wrap{right:12px;left:12px;bottom:12px}
+  .toast{max-width:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+
+/* Image detection labels and room-level energy preview */
+.room-energy-preview{margin-top:11px;border:1px solid #dfe9ef;border-radius:13px;background:linear-gradient(135deg,#f8fbfd 0%,#f2fbf8 100%);padding:14px 15px;color:#607286}
+.room-energy-preview[hidden]{display:none!important}
+.room-energy-preview-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.room-energy-preview-kicker{font-size:9px;font-weight:850;letter-spacing:.09em;text-transform:uppercase;color:#19877b}
+.room-energy-preview-title{display:block;font-size:12px;font-weight:800;color:#263b50;margin-top:5px}
+.room-energy-preview-copy{font-size:10px;line-height:1.55;color:#708196;margin-top:5px;max-width:440px}
+.room-waste-score{font-size:24px;font-weight:850;letter-spacing:-.8px;color:#087f78;white-space:nowrap}
+.room-waste-score small{font-size:10px;font-weight:700;letter-spacing:0;color:#8291a2}
+.room-waste-track{height:7px;border-radius:99px;background:#e0e9ed;overflow:hidden;margin-top:12px}
+.room-waste-track span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#31c4a8,#e4ad4b);transition:width .25s ease}
+.room-energy-preview-foot{display:block;margin-top:9px;font-size:9px;line-height:1.55;color:#8593a3}
+@media(max-width:720px){.room-energy-preview{padding:12px}.room-waste-score{font-size:22px}}
+
+/* Signal Lab: guided, beginner-friendly workflow */
+.signal-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:-3px 0 17px}
+.signal-step{display:flex;align-items:center;gap:11px;min-width:0;padding:13px 14px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 5px 16px rgba(25,45,75,.025)}
+.step-bubble{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:10px;background:#edf2f7;color:#66788b;font-size:12px;font-weight:800}
+.signal-step:first-child .step-bubble{background:#dff8f1;color:#087f78}
+.signal-step strong{display:block;font-size:11px;color:#28394d;line-height:1.3}
+.signal-step small{display:block;font-size:9px;color:#8795a7;margin-top:4px;line-height:1.35}
+.step-state{margin-left:auto;font-size:9px;color:#8d99a8;background:#f3f6f9;border-radius:20px;padding:5px 7px;white-space:nowrap}
+.step-state.done{color:#13765f;background:#e6f8f1}.step-state.active{color:#365fbd;background:#eaf0ff}.step-state.warn{color:#94651f;background:#fff3dc}
+.simplified-signal-grid{grid-template-columns:minmax(0,1.15fr) minmax(285px,.85fr);align-items:start;gap:17px}
+.image-workflow-panel,.apply-workflow-panel{padding:22px}
+.workflow-heading{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px}
+.workflow-heading-spaced{margin-top:23px}
+.workflow-number{flex:0 0 30px;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#dff8f1;color:#087f78;font-size:12px;font-weight:850}
+.workflow-heading h2{margin:1px 0 0}
+.workflow-heading .panel-sub{margin-top:6px;line-height:1.6;font-size:11px}
+.camera-drop{min-height:184px;padding:20px;gap:10px}
+.camera-drop strong{font-size:13px}
+.camera-drop span{font-size:11px;line-height:1.65}
+.choose-image-btn{margin-top:3px;min-width:130px}
+.visually-hidden-file{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.visually-hidden-file:focus-visible+label{outline:3px solid rgba(16,183,164,.35);outline-offset:3px}
+.selected-file{display:flex;align-items:center;gap:8px;margin-top:10px;padding:9px 11px;background:#f2faf7;border:1px solid #d7eee6;border-radius:10px;font-size:10px;color:#26705f;overflow-wrap:anywhere}
+.selected-file[hidden]{display:none!important}
+.image-actions-main{margin-top:2px;margin-bottom:10px}
+.image-actions-main .btn-primary{flex:1;min-height:40px}
+.image-actions-main .btn:not(.btn-primary){min-width:94px}
+#detection-canvas{max-height:400px}
+.apply-guide{display:flex;flex-direction:column;gap:5px;margin:3px 0 17px;padding:13px 14px;border:1px solid #e0e8ef;background:#f7fafc;border-radius:12px;color:#6c7b8d;font-size:11px;line-height:1.6}
+.apply-guide strong{font-size:12px;color:#2e4055}
+.apply-guide.ready{background:#eaf9f3;border-color:#d0eee2}.apply-guide.ready strong{color:#14755f}
+.apply-guide.warn{background:#fff7e8;border-color:#f2e4c2}.apply-guide.warn strong{color:#8f671f}
+.workflow-field{margin-top:15px}
+.workflow-field label{font-size:11px;color:#485b70}
+.field-help{font-size:10px;line-height:1.5;color:#8a97a7}
+.apply-count-button{width:100%;min-height:43px;margin-top:18px}
+.apply-feedback{margin-top:11px;padding:11px 12px;border-radius:10px;background:#f6f8fb;color:#7c8999;font-size:10px;line-height:1.6}
+.apply-feedback.success{background:#eaf9f3;color:#16765e}
+.privacy-note{display:flex;flex-direction:column;gap:5px;border-top:1px solid #edf1f6;margin-top:19px;padding-top:16px;font-size:10px;line-height:1.65;color:#8090a2}
+.privacy-note strong{color:#3d586a;font-size:10px;text-transform:uppercase;letter-spacing:.6px}
+.advanced-panel,.decision-help-panel{margin-top:15px;padding:0;overflow:hidden}
+.advanced-panel>summary,.decision-help-panel>summary{display:flex;align-items:center;gap:11px;list-style:none;cursor:pointer;padding:17px 20px;min-height:68px}
+.advanced-panel>summary::-webkit-details-marker,.decision-help-panel>summary::-webkit-details-marker{display:none}
+.advanced-panel>summary:hover,.decision-help-panel>summary:hover{background:#fbfdfd}
+.advanced-summary-icon{flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:#edf6f5;color:#168d80;font-weight:800;font-size:17px}
+.advanced-summary-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.advanced-summary-copy strong{font-size:12px;color:#2a3a4e}
+.advanced-summary-copy small{font-size:10px;color:#8794a5;line-height:1.45}
+.advanced-summary-hint{margin-left:auto;font-size:10px;color:#138c80;white-space:nowrap}
+.advanced-content{padding:0 20px 20px;border-top:1px solid #edf1f6}
+.advanced-intro{font-size:11px;color:#7c899b;line-height:1.65;margin:15px 0}
+.advanced-content .signal-form{gap:14px}
+.simplified-explainer{margin-top:15px}
+.simplified-explainer .explainer-card{background:#fbfcfe}
+@media(max-width:830px){.simplified-signal-grid{grid-template-columns:1fr}.signal-steps{grid-template-columns:1fr}.signal-step{padding:12px 13px}.step-state{font-size:9px}.advanced-panel>summary,.decision-help-panel>summary{padding:15px}}
+@media(max-width:560px){.image-workflow-panel,.apply-workflow-panel{padding:16px}.workflow-heading{gap:9px}.camera-drop{min-height:165px;padding:15px}.image-actions-main{flex-wrap:wrap}.image-actions-main .btn-primary{flex-basis:100%}.image-actions-main .btn:not(.btn-primary){width:100%}.advanced-summary-hint{display:none}.advanced-content{padding:0 15px 16px}.advanced-panel>summary,.decision-help-panel>summary{padding:14px 15px}.signal-step small{font-size:9px}}
+
+
+
+/* Refined dark scrollbar: a black track with a subtle graphite thumb. */
+html{
+  scrollbar-color:#303943 #080b0f;
+  scrollbar-width:thin;
+  scrollbar-gutter:stable;
+}
+body,*,*::before,*::after{scrollbar-width:thin;scrollbar-color:#303943 #080b0f}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:#080b0f;border-left:1px solid #171d24}
+::-webkit-scrollbar-thumb{background:#303943;border:2px solid #080b0f;border-radius:999px;min-height:32px}
+::-webkit-scrollbar-thumb:hover{background:#4a5964}
+::-webkit-scrollbar-corner{background:#080b0f}
+/* Cleaner, restrained surfaces and more legible active states. */
+.sidebar{background:linear-gradient(180deg,#090b0f 0%,#0c1117 100%);border-right:1px solid #202832}
+.brand-mark{box-shadow:0 4px 18px rgba(16,183,164,.18)}
+.nav-item{transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav-item:hover{background:#ffffff0d}
+.nav-item.active{background:linear-gradient(90deg,rgba(16,183,164,.17),rgba(16,183,164,.06));color:#e8fff9}
+.panel,.stat,.trend-card,.room-card{box-shadow:0 5px 22px rgba(18,31,48,.045)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.7 13h6.2L10 22l9.3-12h-6.5z"/><path d="M5 4h2M18 18h2" opacity=".7"/></svg></div><div><div class="brand-name">Phantom</div><div class="brand-sub">Energy intelligence</div></div></div>
+  <nav aria-label="Main navigation">
+    <div class="nav-label">Workspace</div>
+    <button class="nav-item active" data-view="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="8" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>Overview</button>
+    <button class="nav-item" data-view="rooms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16M3 21h18M8 7h3v4H8zM15 7h2M15 11h2M10 21v-5h4v5"/></svg>Room intelligence <span class="nav-count" id="nav-risk-count">3</span></button>
+    <button class="nav-item" data-view="signals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0M12 19h.01"/><rect x="3" y="3" width="18" height="18" rx="3" opacity=".35"/></svg>Signal lab</button>
+    <button class="nav-item" data-view="trends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18M7 14l4-4 4 3 5-7"/><path d="M16 6h4v4"/></svg>Trends & savings</button>
+    <div class="nav-label">Governance</div>
+    <button class="nav-item" data-view="kindness"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg>Kindness Rule</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="campus-card"><div class="tiny">Active environment</div><div class="campus-name">SRM · Demo Campus</div><div class="campus-meta"><span class="green-dot"></span>Simulation running</div></div><div class="profile"><div class="avatar">EI</div><div><strong>Energy Intelligence</strong><small>Prototype workspace</small></div></div></div>
+</aside>
+<main>
+  <div class="topbar"><div class="crumb">Workspace&nbsp; / &nbsp;<strong id="crumb-current">Overview</strong></div><div class="top-actions"><div class="data-pill"><span class="dot"></span> SIMULATED DATA <span style="color:#c4ccd7">·</span> <span id="updated-time">Updated just now</span></div><button class="icon-btn" id="refresh-btn" title="Refresh simulation" aria-label="Refresh simulation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.8 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.2-3"/></svg></button></div></div>
+  <section class="view active" id="view-overview">
+    <div class="page-head"><div><div class="eyebrow" id="campus-date">Campus pulse</div><h1>Think beyond timetables.</h1><p>Understand what rooms are really doing — then make a safer, smarter energy decision.</p></div><div class="head-buttons"><button class="btn" id="export-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>Export report</button><button class="btn btn-primary" id="review-all-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Review alerts</button></div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-top"><span>Live estimated load</span><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span></div><div class="stat-value" id="stat-load">23.4 <small style="font-size:13px;color:#718096;font-weight:600">kW</small></div><div class="stat-foot"><span class="trend-up">+8.2%</span> vs expected idle baseline</div><svg class="stat-spark" viewBox="0 0 86 35"><path d="M0 30 12 25 22 28 32 15 45 18 55 8 67 14 86 2" fill="none" stroke="#10b7a4" stroke-width="3"/></svg></div>
+      <div class="stat"><div class="stat-top"><span>Potential avoidable energy</span><span class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M18.4 18.4l-2.1-2.1M18 12h3M18.4 5.6l-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></span></div><div class="stat-value" id="stat-savings">8.6 <small style="font-size:13px;color:#718096;font-weight:600">kWh/day</small></div><div class="stat-foot">Estimated only · <span style="color:#a97727;font-weight:700">needs verification</span></div><svg class="stat-spark" viewBox="0 0 86 35"><path d="M0 5 12 14 22 10 32 18 45 13 55 25 67 21 86 32" fill="none" stroke="#efaa43" stroke-width="3"/></svg></div>
+      <div class="stat"><div class="stat-top"><span>Rooms needing a check</span><span class="stat-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="m10.3 3.9-8 14a2 2 0 0 0 1.7 3h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0Z"/></svg></span></div><div class="stat-value" id="stat-verify">2 <small style="font-size:13px;color:#718096;font-weight:600">rooms</small></div><div class="stat-foot">Conflicting signals — <span style="color:#4c78d9;font-weight:700">verify first</span></div><svg class="stat-spark" viewBox="0 0 86 35"><path d="M0 31 12 24 22 27 32 10 45 18 55 8 67 14 86 2" fill="none" stroke="#5387f4" stroke-width="3"/></svg></div>
+      <div class="stat"><div class="stat-top"><span>Occupied with high confidence</span><span class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span></div><div class="stat-value" id="stat-occupied">2 <small style="font-size:13px;color:#718096;font-weight:600">rooms</small></div><div class="stat-foot">Camera + motion cross-check</div><svg class="stat-spark" viewBox="0 0 86 35"><path d="M0 30 12 26 22 21 32 23 45 12 55 15 67 7 86 4" fill="none" stroke="#8a62ce" stroke-width="3"/></svg></div>
+    </div>
+    <div class="grid-main"><article class="panel"><div class="panel-head"><div><h2 class="panel-title">Energy use vs. expected baseline</h2><div class="panel-sub">Last 7 days · combined room meter estimate</div></div><span class="mini-tag">↓ 6.4% this week</span></div><div class="chart-wrap"><div class="chart-legend"><span><i class="legend-dot" style="background:#10b7a4"></i>Observed load</span><span><i class="legend-dot" style="background:#d6e4e4"></i>Expected baseline</span></div><svg id="energy-chart" class="chart-svg" viewBox="0 0 570 195" role="img" aria-label="Seven day observed energy use versus baseline"></svg><div class="chart-note"><span class="mini-tag">INSIGHT</span><span><b id="chart-insight">Tuesday afternoon</b> is trending above the expected baseline. A room check can confirm whether this is avoidable.</span></div></div></article>
+      <article class="panel risk-panel"><div class="panel-head"><div><h2 class="panel-title">Highest waste signals</h2><div class="panel-sub">Ranked by explainable waste score</div></div><button class="plain-link" data-goto="rooms">View all →</button></div><div class="risk-list" id="risk-list"></div></article>
+    </div>
+    <div class="bottom-grid"><article class="panel"><div class="panel-head"><div><h2 class="panel-title">Room status</h2><div class="panel-sub">A quick read across monitored spaces</div></div><button class="plain-link" data-goto="rooms">All rooms →</button></div><div class="table-wrap"><table class="room-table"><thead><tr><th>Room</th><th>Occupancy confidence</th><th>Live load</th><th>Decision</th><th></th></tr></thead><tbody id="room-table-body"></tbody></table></div></article>
+      <article class="panel"><div class="panel-head"><div><h2 class="panel-title">Decision activity</h2><div class="panel-sub">Latest system reasoning & human choices</div></div><button class="plain-link" id="clear-log">Clear log</button></div><div class="activity-list" id="activity-list"></div></article></div>
+    <div class="kindness-strip"><div class="kindness-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg></div><div class="kindness-copy"><strong>The Kindness Rule is always on.</strong><span>No equipment is switched off automatically. Comfort, accessibility, safety, and human overrides beat an energy-saving recommendation — every time.</span></div><button class="btn" data-goto="kindness">View safeguards →</button></div>
+  </section>
+  <section class="view" id="view-rooms"><div class="page-head"><div><div class="eyebrow">Room intelligence</div><h1>Every room tells a story.</h1><p>Review sensor agreement, energy use, and the reason behind each suggested check.</p></div><div class="head-buttons"><button class="btn" id="rooms-export">Export rooms CSV</button><button class="btn btn-primary" id="add-signal-btn">+ Update room signals</button></div></div><div class="panel section-panel"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><strong style="font-size:13px">Monitored spaces</strong><div class="panel-sub">Six example rooms · simulated data for demo purposes</div></div><div class="filters"><select class="select" id="status-filter" aria-label="Filter room status"><option value="all">All statuses</option><option value="waste">Potential waste</option><option value="verify">Verify signals</option><option value="ok">Looks aligned</option><option value="override">Human override</option></select><select class="select" id="sort-filter" aria-label="Sort rooms"><option value="score">Sort: waste score</option><option value="load">Sort: live load</option><option value="name">Sort: room name</option></select></div></div></div><div class="room-cards" id="room-cards"></div></section>
+  <section class="view" id="view-signals">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">Guided workflow</div>
+        <h1>Check a classroom in 3 easy steps.</h1>
+        <p>Choose a classroom image, let Phantom estimate how many people it can see, then add that estimate to a room. No equipment is switched off automatically.</p>
+      </div>
+    </div>
+
+    <div class="signal-steps" aria-label="Signal Lab steps">
+      <div class="signal-step active"><span class="step-bubble">1</span><div><strong>Choose an image</strong><small>Upload a clear classroom photo</small></div><span class="step-state" id="step1-state">Start here</span></div>
+      <div class="signal-step"><span class="step-bubble">2</span><div><strong>Analyze people</strong><small>Look for the teal boxes</small></div><span class="step-state" id="step2-state">Waiting</span></div>
+      <div class="signal-step"><span class="step-bubble">3</span><div><strong>Apply the count</strong><small>Send it to a room</small></div><span class="step-state" id="step3-state">Waiting</span></div>
+    </div>
+
+    <div class="signals-grid simplified-signal-grid">
+      <article class="panel section-panel image-workflow-panel">
+        <div class="workflow-heading"><span class="workflow-number">1</span><div><h2 class="panel-title">Choose a classroom image</h2><p class="panel-sub">Use a clear image where people are reasonably visible. PNG, JPG, or WEBP · max 20 MB.</p></div></div>
+        <div class="camera-drop" id="camera-drop" role="group" aria-label="Choose or drop a classroom image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="m7 5 1.5-2h7L17 5"/></svg>
+          <strong>Drag an image here</strong>
+          <span>or choose a file from your computer.<br/>Your image stays in this browser.</span>
+          <label class="btn btn-soft choose-image-btn" for="camera-file">Choose image</label>
+          <input class="visually-hidden-file" type="file" id="camera-file" accept="image/png,image/jpeg,image/webp" aria-label="Choose classroom image" />
+        </div>
+        <div class="selected-file" id="selected-file" hidden></div>
+
+        <div class="workflow-heading workflow-heading-spaced"><span class="workflow-number">2</span><div><h2 class="panel-title">Analyze the image</h2><p class="panel-sub">Phantom will mark people it detects with teal boxes.</p></div></div>
+        <div class="image-actions image-actions-main"><button class="btn btn-primary" id="analyze-image" disabled>Analyze image for people →</button><button class="btn" id="clear-image">Start over</button></div>
+        <div class="model-status" id="model-status" role="status" aria-live="polite">First, choose an image above. On the first analysis, an internet connection is needed to load the detector.</div>
+        <div class="image-stage" id="image-stage" hidden><canvas id="detection-canvas" aria-label="Classroom image with detected people marked"></canvas></div>
+        <div class="detection-summary" id="detection-summary">Your result will appear here after analysis. The detector estimates visible people; it does not identify anyone. A zero result does not prove the room is empty.</div>
+        <div class="room-energy-preview" id="room-energy-preview" aria-live="polite" hidden>
+          <div class="room-energy-preview-top"><div><div class="room-energy-preview-kicker">Room energy check</div><strong class="room-energy-preview-title" id="room-energy-preview-title">Potential energy-waste score</strong><div class="room-energy-preview-copy" id="room-energy-preview-copy">After reviewing the people count, Phantom will estimate the room's possible energy-waste risk.</div></div><div class="room-waste-score" id="room-waste-score">—<small>%</small></div></div>
+          <div class="room-waste-track" aria-label="Illustrative room waste score"><span id="room-waste-bar"></span></div>
+          <small class="room-energy-preview-foot" id="room-energy-preview-foot">This is a room-level demo score based on simulated readings, not the energy use of an individual person.</small>
+        </div>
+      </article>
+
+      <article class="panel section-panel apply-workflow-panel">
+        <div class="workflow-heading"><span class="workflow-number">3</span><div><h2 class="panel-title">Apply the count to a room</h2><p class="panel-sub">Check the count, choose the matching room, then apply it.</p></div></div>
+        <div class="apply-guide" id="apply-guide"><strong>Waiting for an image result</strong><span>After analysis, the estimated people count will appear below. You can also type a manual count if the detector is unavailable or missed someone.</span></div>
+        <div class="field workflow-field"><label for="preview-room">Which room is this image from?</label><select id="preview-room" class="select"></select></div>
+        <div class="field workflow-field"><label for="preview-count">Estimated number of people</label><input id="preview-count" type="number" min="0" max="200" value="0" inputmode="numeric"/><small class="field-help">Review or adjust this number before applying it.</small></div>
+        <button class="btn btn-primary apply-count-button" id="apply-camera-count">Apply count to room</button>
+        <div class="apply-feedback" id="apply-feedback" role="status" aria-live="polite">Nothing applied yet. Applying a count updates the room's estimate; it does not control lights or AC.</div>
+        <div class="privacy-note"><strong>People first</strong><span>Images can miss people because of distance, lighting, or blocked views. Phantom checks the image estimate against motion and timetable signals. When signals disagree, it asks for verification.</span></div>
+      </article>
+    </div>
+
+    <details class="panel section-panel advanced-panel">
+      <summary><span class="advanced-summary-icon">＋</span><span class="advanced-summary-copy"><strong>Optional: test other signals manually</strong><small>For testing motion, class schedules, and energy readings without an image</small></span><span class="advanced-summary-hint">Advanced settings</span></summary>
+      <div class="advanced-content">
+        <p class="advanced-intro">Use these demo controls when you want to show judges what happens if the camera, timetable, motion sensor, or energy meter disagree. You can ignore this section for the normal image workflow.</p>
+        <form id="signal-form" class="signal-form">
+          <div class="field full"><label for="signal-room">Room to update</label><select id="signal-room" class="select"></select></div>
+          <div class="field"><label for="camera-count">People seen by camera</label><input id="camera-count" type="number" min="0" max="200" value="0" required /></div>
+          <div class="field"><label for="live-load">Power being used (kW)</label><input id="live-load" type="number" min="0" max="100" step="0.1" value="2.3" required /></div>
+          <div class="field"><label for="baseline-load">Expected power when idle (kW)</label><input id="baseline-load" type="number" min="0" max="100" step="0.1" value="0.5" required /></div>
+          <div class="field"><label for="equipment-state">Equipment currently on</label><select id="equipment-state" class="select"><option value="all">Lights, AC and projector</option><option value="lights-ac">Lights and AC</option><option value="lights">Lights only</option><option value="ac">AC only</option><option value="none">All equipment off</option></select></div>
+          <label class="toggle-line"><input id="motion-state" type="checkbox" /> Motion detected recently</label>
+          <label class="toggle-line"><input id="scheduled-state" type="checkbox" /> A class or meeting is scheduled now</label>
+          <div class="field full"><button class="btn btn-primary" type="submit">Check these signals →</button></div>
+        </form>
+        <div class="conflict-box" id="signal-explanation"><strong>What should I try?</strong>Set people seen by camera to 0, then turn on motion or the scheduled-class option. Phantom should ask someone to verify the room instead of assuming it is empty.</div>
+      </div>
+    </details>
+
+    <details class="panel section-panel decision-help-panel">
+      <summary><span class="advanced-summary-icon">?</span><span class="advanced-summary-copy"><strong>How does Phantom make a decision?</strong><small>A simple explanation of the result</small></span><span class="advanced-summary-hint">Learn more</span></summary>
+      <div class="advanced-content"><div class="explainer simplified-explainer">
+        <div class="explainer-card"><strong>1. Estimate occupancy</strong><p>The image detector counts visible people. Motion and the timetable provide additional clues.</p></div>
+        <div class="explainer-card"><strong>2. Check for disagreement</strong><p>If a class is scheduled or motion is detected while the image looks empty, Phantom asks for a check.</p></div>
+        <div class="explainer-card"><strong>3. Look for possible waste</strong><p>Low occupancy confidence plus equipment left on and unusually high power can raise a room's waste score.</p></div>
+        <div class="explainer-card"><strong>4. Recommend, never force</strong><p>A person must verify the room. The prototype does not switch off lights, AC, or projectors.</p></div>
+      </div></div>
+    </details>
+  </section>
+  <section class="view" id="view-trends"><div class="page-head"><div><div class="eyebrow">Trends & savings</div><h1>Find the repeat offenders.</h1><p>Use patterns to prioritize walkthroughs and improve operating schedules — without mistaking estimates for verified savings.</p></div><button class="btn" id="trends-export">Download trend data</button></div><div class="trend-cards"><div class="trend-card"><span>Modelled avoidable energy / day</span><strong id="trend-kwh">8.6 kWh</strong><small>Estimate · not a measured saving</small></div><div class="trend-card"><span>Rooms with repeat signals</span><strong id="trend-repeat">3</strong><small>Recurring pattern in sample data</small></div><div class="trend-card"><span>Verification before action</span><strong>100%</strong><small>Required by the Kindness Rule</small></div></div><div class="grid-main"><article class="panel"><div class="panel-head"><div><h2 class="panel-title">Daily observed vs. baseline</h2><div class="panel-sub">Illustrative 7-day trend · not live meter data</div></div></div><div class="chart-wrap"><div class="chart-legend"><span><i class="legend-dot" style="background:#10b7a4"></i>Observed load index</span><span><i class="legend-dot" style="background:#d6e4e4"></i>Expected baseline index</span></div><svg id="trend-chart" class="chart-svg" viewBox="0 0 570 195"></svg></div></article><article class="panel"><div class="panel-head"><div><h2 class="panel-title">Recurring room patterns</h2><div class="panel-sub">Sorted by current risk signal</div></div></div><div class="risk-list" id="trend-risk-list"></div></article></div><div class="panel section-panel" style="margin-top:17px"><h2 class="panel-title">Method notes & limitations</h2><ul class="rule-list"><li>The energy forecast uses the positive difference between live load and an expected idle baseline, multiplied by a demo time window. Actual savings require meter validation.</li><li>Occupancy estimates can miss people, quiet study, accessibility needs, or camera blind spots. A low count alone is never proof that a room is empty.</li><li>Room-level repeated signals are illustrative seed data until real time-stamped records are connected.</li><li>For a pilot, calibrate per-room baselines, set a minimum verification dwell time, and involve facilities staff and room users.</li></ul></div></section>
+  <section class="view" id="view-kindness"><div class="page-head"><div><div class="eyebrow">Governance & trust</div><h1>People come before kilowatts.</h1><p>Energy suggestions should be explainable, reversible, and safe — even when the model feels confident.</p></div><span class="mini-tag" style="font-size:10px;padding:7px 10px">ACTIVE · NON-NEGOTIABLE</span></div><div class="grid-main"><article class="panel section-panel"><h2 class="panel-title">The Kindness Rule</h2><p style="font-size:12px;line-height:1.7;color:#738197;margin:9px 0 14px">A recommendation is not a command. Phantom prioritizes room-user comfort, accessibility, safety, and faculty intent above estimated energy savings. The system cannot shut equipment off automatically.</p><div class="explainer"><div class="explainer-card"><strong>Human override</strong><p>Anyone authorized can mark a room as “Keep equipment on,” add a reason, and choose a review duration. That room is removed from active shutdown-style recommendations for the override window.</p></div><div class="explainer-card"><strong>Conflict means verify</strong><p>When camera, motion, and timetable disagree, the system requests a human check. It does not guess that the room is empty and it does not issue a control action.</p></div><div class="explainer-card"><strong>Explain every flag</strong><p>Each warning lists the evidence: camera count, motion, schedule, live load versus baseline, and the logic behind its score.</p></div><div class="explainer-card"><strong>Privacy-aware by design</strong><p>Use anonymous occupancy counts, process at the edge where possible, apply retention limits, and avoid face recognition or identity tracking.</p></div></div><h3 style="font-size:12px;margin:22px 0 0">Safeguards in this prototype</h3><ul class="rule-list"><li>Automatic power control is disabled.</li><li>Override requires a reason and duration.</li><li>Overrides are visible in the room state and activity log.</li><li>Any conflict or stale signal triggers verification.</li><li>Scores are labelled estimates, not verified savings.</li></ul></article><article class="panel section-panel"><h2 class="panel-title">Set a human override</h2><p class="panel-sub" style="margin-bottom:18px">Tell Phantom to respect a room's needs. Overrides are held for this demo session.</p><div class="field"><label for="override-room">Room</label><select id="override-room" class="select"></select></div><div class="field" style="margin-top:13px"><label for="override-reason">Reason</label><select id="override-reason" class="select"><option>Class or meeting still in progress</option><option>Comfort / temperature recovery</option><option>Accessibility or medical need</option><option>Safety / cleaning / maintenance</option><option>Faculty or facilities request</option><option>Other — verify with room user</option></select></div><div class="field" style="margin-top:13px"><label for="override-duration">Override duration</label><select id="override-duration" class="select"><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="120">2 hours</option><option value="240">4 hours</option><option value="480">Until end of day (8 hours)</option></select></div><button class="btn btn-primary" id="apply-override" style="margin-top:17px;width:100%">Respect this room's needs</button><div style="border-top:1px solid #edf1f6;margin-top:21px;padding-top:17px"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><strong style="font-size:12px">Active overrides</strong><button class="plain-link" id="clear-overrides">Clear expired / all</button></div><div id="override-list" style="margin-top:9px"></div></div></article></div></section>
+  <div class="footer-note">Prototype for hackathon demonstration · <strong>SIMULATED SIGNALS ONLY</strong> · No connected equipment controls</div>
+</main>
+</div>
+<div class="modal-backdrop" id="room-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal"><div class="modal-head"><div><h2 id="modal-title">Room intelligence</h2><p id="modal-subtitle">Evidence, score, and a safe next step.</p></div><button class="modal-close" id="modal-close" aria-label="Close dialog">×</button></div><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div></div></div>
+<div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+<script>
+const seedRooms=[
+ {id:'R-204',name:'Seminar Room',zone:'Academic Block B',camera:0,motion:false,scheduled:false,load:2.3,baseline:.5,equipment:['Lights','AC','Projector'],repeat:4},
+ {id:'R-101',name:'Lecture Hall A',zone:'Academic Block A',camera:0,motion:false,scheduled:true,load:4.8,baseline:2.1,equipment:['Lights','AC','Projector'],repeat:3},
+ {id:'R-210',name:'Computing Lab',zone:'Technology Block',camera:24,motion:true,scheduled:true,load:7.2,baseline:6.8,equipment:['Lights','AC'],repeat:0},
+ {id:'R-305',name:'Tutorial Room',zone:'Academic Block C',camera:3,motion:true,scheduled:false,load:3.1,baseline:.8,equipment:['Lights','AC'],repeat:2},
+ {id:'R-312',name:'Meeting Room',zone:'Administration',camera:0,motion:false,scheduled:false,load:2.9,baseline:.4,equipment:['Lights','AC'],repeat:1},
+ {id:'R-401',name:'Design Studio',zone:'Innovation Wing',camera:1,motion:false,scheduled:true,load:5.3,baseline:2,equipment:['Lights','AC','Projector'],repeat:2}
+];
+let rooms=seedRooms.map(r=>({...r,equipment:[...r.equipment],override:null,verified:false}));
+let activity=[
+ {kind:'amber',title:'Seminar Room flagged',detail:'Low occupancy signals with 1.8 kW above its idle baseline.',time:'Just now'},
+ {kind:'blue',title:'Lecture Hall A needs verification',detail:'A session is scheduled but the camera estimate is zero.',time:'2 min ago'},
+ {kind:'green',title:'Computing Lab looks aligned',detail:'Camera, motion, schedule, and energy use broadly agree.',time:'8 min ago'}
+];
+const $=id=>document.getElementById(id);const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const campusDate=$('campus-date');if(campusDate)campusDate.textContent=new Intl.DateTimeFormat(undefined,{weekday:'long'}).format(new Date())+' · Campus pulse';
+let currentImage=null,currentImageUrl=null,currentImageFileName='',detectionModel=null,detectionLoadPromise=null,lastImageDetection=null,hasReviewedImageCount=false;
+function calc(r){
+ const cameraEvidence=r.camera>0?Math.min(.99,.78+Math.log2(r.camera+1)*.055):.12;
+ const motionEvidence=r.motion?.85:.18;const scheduleEvidence=r.scheduled?.62:.20;
+ const occupancy=Math.max(0,Math.min(1,.55*cameraEvidence+.27*motionEvidence+.18*scheduleEvidence));
+ const conflict=(r.camera===0&&(r.motion||r.scheduled))||(r.camera>0&&!r.motion&&r.camera<=2);
+ const excess=Math.max(0,r.load-r.baseline);const equipmentOn=r.equipment.length>0;
+ const raw=Math.round((1-occupancy)*100*Math.min(1,excess/Math.max(.6,r.load||.6))* (equipmentOn?1:.35));
+ const waste=equipmentOn?Math.max(0,Math.min(99,Math.round(raw*.96))):0;
+ let status='ok';if(r.override&&r.override.expires>Date.now())status='override';else if(conflict)status='verify';else if(waste>=50&&r.load>r.baseline+.5)status='waste';
+ const reasons=[];
+ if(r.camera===0)reasons.push('Camera estimate: 0 occupants');else reasons.push(`Camera estimate: ${r.camera} occupant${r.camera===1?'':'s'}`);if(r.cameraSource)reasons.push(`Occupancy source: ${r.cameraSource}`);
+ reasons.push(`Motion ${r.motion?'detected':'not detected'}`);reasons.push(`Timetable ${r.scheduled?'has a session':'has no session'}`);
+ if(excess>.15)reasons.push(`Live load is ${excess.toFixed(1)} kW above idle baseline`);else reasons.push('Live load is close to the idle baseline');
+ if(conflict)reasons.push('Signals conflict, so verify occupancy before any intervention');
+ if(status==='override')reasons.push(`Human override: ${r.override.reason}`);
+ return {...r,occupancy,occupancyPct:Math.round(occupancy*100),conflict,excess,waste,status,reasons,estimatedKwh:status==='waste'?+(excess*2).toFixed(1):0};
+}
+function getRooms(){return rooms.map(calc)}
+function stateLabel(r){return ({waste:'Potential waste',verify:'Verify signals',ok:'Looks aligned',override:'Human override'})[r.status]}
+function statusClass(s){return s}
+function fmt(n){return Number(n).toLocaleString('en-IN',{maximumFractionDigits:1,minimumFractionDigits:0})}
+function iconSvg(name){const paths={clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',bolt:'<path d="M13 2 4 14h7l-1 8 10-13h-7z"/>',check:'<path d="m5 12 4 4L19 6"/>',alert:'<path d="M12 9v4M12 17h.01"/><path d="m10.3 3.9-8 14a2 2 0 0 0 1.7 3h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0Z"/>',shield:'<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/>',camera:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/>'};return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]||paths.bolt}</svg>`}
+function renderStats(){const rs=getRooms(),load=rs.reduce((s,r)=>s+r.load,0),baseline=rs.reduce((s,r)=>s+r.baseline,0),saving=rs.filter(r=>r.status==='waste').reduce((s,r)=>s+r.estimatedKwh,0),verify=rs.filter(r=>r.status==='verify').length,occupied=rs.filter(r=>r.occupancyPct>=70&&!r.conflict).length;risk=rs.filter(r=>r.status==='waste').length;$('stat-load').innerHTML=`${load.toFixed(1)} <small style="font-size:13px;color:#718096;font-weight:600">kW</small>`;$('stat-savings').innerHTML=`${saving.toFixed(1)} <small style="font-size:13px;color:#718096;font-weight:600">kWh/day</small>`;$('stat-verify').innerHTML=`${verify} <small style="font-size:13px;color:#718096;font-weight:600">rooms</small>`;$('stat-occupied').innerHTML=`${occupied} <small style="font-size:13px;color:#718096;font-weight:600">rooms</small>`;$('nav-risk-count').textContent=risk+verify;$('trend-kwh').textContent=`${saving.toFixed(1)} kWh`;$('trend-repeat').textContent=rs.filter(r=>r.repeat>=2).length;}
+function renderChart(id){const svg=$(id);if(!svg)return;const obs=[31,36,34,42,38,47,44],base=[28,29,30,31,31,32,31],w=570,h=195,left=30,right=12,top=13,bottom=28;const x=i=>left+i*(w-left-right)/6;const y=v=>h-bottom-(v-20)/(52-20)*(h-top-bottom);let lines='';[20,30,40,50].forEach(v=>{lines+=`<line x1="${left}" y1="${y(v)}" x2="${w-right}" y2="${y(v)}" stroke="#edf1f6" stroke-width="1"/><text x="3" y="${y(v)+3}" class="chart-axis">${v}</text>`});const makePath=a=>a.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ');const area=makePath(obs)+` L ${x(6)} ${h-bottom} L ${x(0)} ${h-bottom} Z`;const days=['Wed','Thu','Fri','Sat','Sun','Mon','Tue'];let labels=days.map((d,i)=>`<text x="${x(i)}" y="${h-6}" class="chart-axis" text-anchor="middle">${d}</text>`).join('');let dots=obs.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="#10b7a4" stroke="#fff" stroke-width="1.5"/>`).join('');svg.innerHTML=`${lines}<path d="${area}" fill="#10b7a4" opacity=".07"/><path d="${makePath(base)}" fill="none" stroke="#d6e4e4" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4"/><path d="${makePath(obs)}" fill="none" stroke="#10b7a4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>${dots}${labels}`;}
+function renderRisk(target='risk-list'){const rs=getRooms().filter(r=>r.status!=='override').sort((a,b)=>b.waste-a.waste).slice(0,3);$(target).innerHTML=rs.map((r,i)=>`<div class="risk-row"><div class="risk-number ${r.waste>=70?'high':r.waste>=40?'medium':''}">${String(i+1).padStart(2,'0')}</div><div><div class="risk-room">${escapeHtml(r.name)}</div><div class="risk-detail">${r.status==='verify'?'Conflicting occupancy signals':`${r.excess.toFixed(1)} kW above baseline · ${r.equipment.length} devices on`}</div></div><div class="risk-right"><div class="risk-score ${r.waste>=70?'high':r.waste>=40?'medium':'low'}">${r.waste}</div><div class="risk-bar"><span class="${r.waste>=70?'red':r.waste<40?'teal':''}" style="width:${r.waste}%"></span></div></div></div>`).join('')||'<div class="empty-state">No rooms currently need review.</div>'}
+function renderTable(){const rs=getRooms().sort((a,b)=>b.waste-a.waste);$('room-table-body').innerHTML=rs.slice(0,6).map(r=>`<tr data-room="${r.id}"><td><div class="room-name">${escapeHtml(r.name)}</div><div class="room-id">${r.id} · ${escapeHtml(r.zone)}</div></td><td><div class="conf-cell"><div class="conf-track"><span style="width:${r.occupancyPct}%"></span></div><b>${r.occupancyPct}%</b></div></td><td><b style="color:#26364a">${r.load.toFixed(1)} kW</b></td><td><span class="status ${statusClass(r.status)}">${stateLabel(r)}</span></td><td><button class="row-action" data-inspect="${r.id}">Inspect →</button></td></tr>`).join('');document.querySelectorAll('[data-room]').forEach(el=>el.addEventListener('click',e=>{if(!e.target.closest('[data-inspect]'))openRoom(el.dataset.room)}));document.querySelectorAll('[data-inspect]').forEach(el=>el.addEventListener('click',e=>{e.stopPropagation();openRoom(el.dataset.inspect)}))}
+function renderRoomCards(){let rs=getRooms(),f=$('status-filter').value,sort=$('sort-filter').value;if(f!=='all')rs=rs.filter(r=>r.status===f);rs.sort(sort==='load'?(a,b)=>b.load-a.load:sort==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>b.waste-a.waste);$('room-cards').innerHTML=rs.map(r=>`<article class="room-card"><div class="room-card-top"><div><h3>${escapeHtml(r.name)}</h3><div class="room-id">${r.id} · ${escapeHtml(r.zone)}</div></div>${iconSvg(r.status==='verify'?'alert':r.status==='override'?'shield':r.status==='ok'?'check':'bolt').replace('<svg','<svg style="width:20px;height:20px;color:'+(r.status==='verify'?'#be842d':r.status==='override'?'#5378d0':r.status==='ok'?'#1b9a76':'#c08027')+'"')}</div><span class="status ${statusClass(r.status)}">${stateLabel(r)}</span><div class="room-energy"><strong>${r.load.toFixed(1)}</strong><span>kW live load</span></div><div class="room-card-meta"><div><label>Occupancy confidence</label><b>${r.occupancyPct}%</b></div><div><label>Above idle baseline</label><b>${r.excess.toFixed(1)} kW</b></div><div><label>Camera estimate</label><b>${r.camera} people</b></div><div><label>Waste score</label><b>${r.waste}/100</b></div></div><div class="room-card-foot"><span class="score-pill">${r.conflict?'Verify first':r.status==='override'?'Override respected':r.status==='waste'?'Check equipment':'No urgent flag'}</span><button class="btn btn-small" data-room-open="${r.id}">Inspect room →</button></div></article>`).join('')||'<div class="panel empty-state">No rooms match this filter.</div>';document.querySelectorAll('[data-room-open]').forEach(b=>b.addEventListener('click',()=>openRoom(b.dataset.roomOpen)))}
+function renderActivity(){const rows=activity.slice(0,5);$('activity-list').innerHTML=rows.map(a=>`<div class="activity-item"><div class="activity-symbol ${a.kind==='amber'?'amber':a.kind==='blue'?'blue':''}">${iconSvg(a.kind==='amber'?'alert':a.kind==='blue'?'eye':'check')}</div><div><div class="activity-text"><strong>${escapeHtml(a.title)}</strong><br>${escapeHtml(a.detail)}</div><div class="activity-time">${escapeHtml(a.time)}</div></div></div>`).join('')||'<div class="empty-state">No recent activity. Your demo log is clear.</div>'}
+function renderOverrides(){const rs=getRooms().filter(r=>r.override&&r.override.expires>Date.now());$('override-list').innerHTML=rs.length?rs.map(r=>`<div style="display:flex;gap:9px;justify-content:space-between;align-items:center;border-top:1px solid #edf1f6;padding:11px 0"><div><strong style="font-size:11px">${escapeHtml(r.name)}</strong><div style="font-size:10px;color:#8390a1;margin-top:4px">${escapeHtml(r.override.reason)} · ${Math.max(1,Math.ceil((r.override.expires-Date.now())/60000))} min left</div></div><button class="btn btn-small" data-release="${r.id}">Release</button></div>`).join(''):'<div style="padding:12px 0;color:#8b98a8;font-size:11px">No active overrides.</div>';document.querySelectorAll('[data-release]').forEach(b=>b.addEventListener('click',()=>{const r=rooms.find(x=>x.id===b.dataset.release);r.override=null;log('green',`${r.name} override released`,'Human override removed; normal room assessment resumed.');renderAll();toast('Override released',r.name+' returned to normal assessment.')}))}
+function renderAll(){renderStats();renderRisk();renderTable();renderRoomCards();renderActivity();renderOverrides();renderChart('energy-chart');renderChart('trend-chart');renderRisk('trend-risk-list');updateSignalExplanation()}
+function log(kind,title,detail){activity.unshift({kind,title,detail,time:'Just now'});activity=activity.slice(0,12)}
+function toast(title,detail=''){const t=document.createElement('div');t.className='toast';t.innerHTML=`<strong>${escapeHtml(title)}</strong>${detail?`<small>${escapeHtml(detail)}</small>`:''}`;$('toast-wrap').appendChild(t);setTimeout(()=>t.remove(),3600)}
+function setView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$('view-'+name).classList.add('active');document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===name));const labels={overview:'Overview',rooms:'Room intelligence',signals:'Signal lab',trends:'Trends & savings',kindness:'Kindness Rule'};$('crumb-current').textContent=labels[name]||'Overview';window.scrollTo({top:0,behavior:'smooth'});if(name==='signals')loadSignalForm()}
+document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.goto)));
+function loadRoomSelects(){const opts=rooms.map(r=>`<option value="${r.id}">${r.id} · ${escapeHtml(r.name)}</option>`).join('');['signal-room','preview-room','override-room'].forEach(id=>$(id).innerHTML=opts)}
+function loadSignalForm(){const r=rooms.find(x=>x.id===$('signal-room').value)||rooms[0];$('camera-count').value=r.camera;$('live-load').value=r.load;$('baseline-load').value=r.baseline;$('motion-state').checked=r.motion;$('scheduled-state').checked=r.scheduled;let eq=r.equipment.join('|');$('equipment-state').value=eq==='Lights|AC|Projector'?'all':eq==='Lights|AC'?'lights-ac':eq==='Lights'?'lights':eq==='AC'?'ac':'none';updateSignalExplanation()}
+$('signal-room').addEventListener('change',loadSignalForm);['camera-count','live-load','baseline-load','motion-state','scheduled-state','equipment-state'].forEach(id=>$(id).addEventListener('input',updateSignalExplanation));
+function updateSignalExplanation(){const camera=+$('camera-count').value||0,motion=$('motion-state').checked,scheduled=$('scheduled-state').checked;const conflict=(camera===0&&(motion||scheduled))||(camera>0&&!motion&&camera<=2);const el=$('signal-explanation');if(conflict){el.innerHTML='<strong>Verification required</strong>The camera estimate conflicts with another signal (motion and/or timetable). A safe system should ask someone to check the room before recommending any equipment change.'}else if(camera>0&&motion){el.innerHTML='<strong>Signals are broadly aligned</strong>Camera count and recent motion both support occupancy. Do not target this room for an empty-room intervention.'}else if(camera===0&&!motion&&!scheduled){el.innerHTML='<strong>Low occupancy evidence</strong>All three signals suggest the room may be empty. Confirm the camera view is clear and check the live load before action.'}else{el.innerHTML='<strong>Mixed confidence</strong>Signals do not strongly establish occupancy. Gather another reading or ask the room user before an energy intervention.'}}
+$('signal-form').addEventListener('submit',e=>{e.preventDefault();const r=rooms.find(x=>x.id===$('signal-room').value);r.camera=Math.max(0,Math.min(200,+$('camera-count').value||0));r.cameraSource='Manual/simulated signal';r.load=Math.max(0,Math.min(100,+$('live-load').value||0));r.baseline=Math.max(0,Math.min(100,+$('baseline-load').value||0));r.motion=$('motion-state').checked;r.scheduled=$('scheduled-state').checked;const eq=$('equipment-state').value;r.equipment=eq==='all'?['Lights','AC','Projector']:eq==='lights-ac'?['Lights','AC']:eq==='lights'?['Lights']:eq==='ac'?['AC']:[];r.verified=false;log('blue',`${r.name} signals recalculated`,`Camera ${r.camera}; motion ${r.motion?'detected':'not detected'}; timetable ${r.scheduled?'active':'inactive'}; load ${r.load.toFixed(1)} kW.`);renderAll();toast('Signals recalculated',`${r.name}: ${stateLabel(calc(r))}. ${calc(r).conflict?'Verify before any intervention.':'Review the explanation and confirm in person.'}`)});
+$('status-filter').addEventListener('change',renderRoomCards);$('sort-filter').addEventListener('change',renderRoomCards);$('add-signal-btn').addEventListener('click',()=>{setView('signals');});
+function setModelStatus(message,type=''){const el=$('model-status');el.textContent=message;el.className='model-status'+(type?' '+type:'')}
+function setStepState(id,label,type=''){const el=$(id);if(el){el.textContent=label;el.className='step-state'+(type?' '+type:'')}}
+function loadScriptCandidate(url){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url;script.async=true;script.onload=()=>resolve();script.onerror=()=>{script.remove();reject(new Error('Could not load '+url))};document.head.appendChild(script)})}
+async function loadLibrary(candidates,globalName){if(window[globalName])return;let lastError;for(const url of candidates){try{await loadScriptCandidate(url);if(window[globalName])return;throw new Error(globalName+' was not available after loading')}catch(err){lastError=err}}throw lastError||new Error('Unable to load '+globalName)}
+async function ensureDetectionModel(){if(detectionModel)return detectionModel;if(detectionLoadPromise)return detectionLoadPromise;detectionLoadPromise=(async()=>{await loadLibrary(['https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js','https://unpkg.com/@tensorflow/tfjs@4.22.0/dist/tf.min.js'],'tf');await loadLibrary(['https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js','https://unpkg.com/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js'],'cocoSsd');await window.tf.ready();return await window.cocoSsd.load({base:'lite_mobilenet_v2'})})();try{detectionModel=await detectionLoadPromise;return detectionModel}catch(err){detectionLoadPromise=null;throw err}}
+function drawBaseImage(){if(!currentImage)return;const canvas=$('detection-canvas'),ctx=canvas.getContext('2d');const iw=currentImage.naturalWidth,ih=currentImage.naturalHeight,scale=Math.min(1,1200/iw,760/ih);canvas.width=Math.max(1,Math.round(iw*scale));canvas.height=Math.max(1,Math.round(ih*scale));ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(currentImage,0,0,canvas.width,canvas.height);$('image-stage').hidden=false}
+function renderRoomEnergyPreview(){
+ const box=$('room-energy-preview');if(!box)return;
+ if(!hasReviewedImageCount){box.hidden=true;return}
+ const room=rooms.find(r=>r.id===$('preview-room').value);if(!room){box.hidden=true;return}
+ const count=Math.max(0,Math.min(200,Number($('preview-count').value)||0));
+ const preview=calc({...room,camera:count,equipment:[...room.equipment],cameraSource:lastImageDetection&&count===lastImageDetection.count?'Image detector (preview)':'Reviewed count (preview)'});
+ box.hidden=false;
+ $('room-energy-preview-title').textContent=room.name+' · potential waste-risk score';
+ $('room-waste-score').innerHTML=preview.waste+'<small>%</small>';
+ $('room-waste-bar').style.width=preview.waste+'%';
+ $('room-energy-preview-copy').textContent=preview.conflict
+   ?'Signals disagree for this room. Verify occupancy before interpreting the energy-waste score or taking action.'
+   :preview.waste>=50
+     ?'This room may be using more power than expected for the current occupancy estimate. Ask someone to verify the room and equipment.'
+     :'Current demo signals do not show a high waste score. Keep monitoring and verify if signals change.';
+ $('room-energy-preview-foot').textContent='Illustrative room-level energy-waste risk score, based on simulated readings and the reviewed count. It is not the measured percentage of electricity consumed or saved, and it is not assigned to any individual person.';
+}
+function loadImageFile(file){if(!file)return;if(!/^image\/(png|jpeg|webp)$/.test(file.type)){toast('Unsupported file','Choose a PNG, JPG, or WEBP image.');return}if(file.size>20*1024*1024){toast('Image is too large','Choose an image smaller than 20 MB.');return}if(currentImageUrl)URL.revokeObjectURL(currentImageUrl);currentImageUrl=URL.createObjectURL(file);currentImageFileName=file.name;lastImageDetection=null;hasReviewedImageCount=false;renderRoomEnergyPreview();currentImage=null;$('preview-count').value=0;$('analyze-image').disabled=true;$('image-stage').hidden=true;$('selected-file').hidden=false;$('selected-file').textContent='Selected file: '+file.name;setStepState('step1-state','Loading image','active');setStepState('step2-state','Waiting');setStepState('step3-state','Waiting');$('apply-guide').className='apply-guide';$('apply-guide').innerHTML='<strong>Image selected</strong><span>Next, choose “Analyze image for people”. The count will appear here after analysis.</span>';$('apply-feedback').className='apply-feedback';$('apply-feedback').textContent='Nothing applied yet. Applying a count updates the room estimate only.';$('detection-summary').textContent='Image selected. After analysis, detected people will be outlined in teal. A zero result does not prove the room is empty.';setModelStatus('Opening the image on this device…','loading');const img=new Image();img.onload=()=>{currentImage=img;drawBaseImage();$('analyze-image').disabled=false;setStepState('step1-state','Image ready','done');setStepState('step2-state','Ready to analyze','active');setModelStatus('Image ready. Click “Analyze image for people”. The first analysis needs internet to download the detector.','good')};img.onerror=()=>{setStepState('step1-state','Try another image','warn');setModelStatus('This image could not be opened. Try another PNG, JPG, or WEBP file.','warn');toast('Could not open image','Try another classroom image.')};img.src=currentImageUrl}
+$('camera-file').addEventListener('change',e=>loadImageFile(e.target.files?.[0]));
+$('camera-drop').addEventListener('dragover',e=>{e.preventDefault();$('camera-drop').style.borderColor='#10b7a4'});$('camera-drop').addEventListener('dragleave',()=>{$('camera-drop').style.borderColor=''});$('camera-drop').addEventListener('drop',e=>{e.preventDefault();$('camera-drop').style.borderColor='';const file=e.dataTransfer?.files?.[0];if(file){$('camera-file').value='';loadImageFile(file)}});
+$('clear-image').addEventListener('click',()=>{if(currentImageUrl)URL.revokeObjectURL(currentImageUrl);currentImageUrl=null;currentImage=null;currentImageFileName='';lastImageDetection=null;hasReviewedImageCount=false;$('camera-file').value='';$('selected-file').hidden=true;$('selected-file').textContent='';$('preview-count').value=0;$('image-stage').hidden=true;$('analyze-image').disabled=true;$('detection-summary').textContent='Your result will appear here after analysis. The detector estimates visible people; it does not identify anyone. A zero result does not prove the room is empty.';setStepState('step1-state','Start here');setStepState('step2-state','Waiting');setStepState('step3-state','Waiting');$('apply-guide').className='apply-guide';$('apply-guide').innerHTML='<strong>Waiting for an image result</strong><span>After analysis, the estimated people count will appear below. You can also type a manual count if the detector is unavailable or missed someone.</span>';$('apply-feedback').className='apply-feedback';$('apply-feedback').textContent='Nothing applied yet. Applying a count updates the room estimate; it does not control lights or AC.';setModelStatus('First, choose an image above. On the first analysis, an internet connection is needed to load the detector.','');toast('Ready for a new image','Choose another classroom image to start again.')});
+$('preview-count').addEventListener('input',()=>{hasReviewedImageCount=true;if(lastImageDetection&&Number($('preview-count').value)!==lastImageDetection.count){lastImageDetection=null;setStepState('step3-state','Manual count','active');$('apply-guide').className='apply-guide';$('apply-guide').innerHTML='<strong>You changed the count</strong><span>This will be saved as a manual estimate, rather than the original AI detection result.</span>'}renderRoomEnergyPreview()});
+$('preview-room').addEventListener('change',renderRoomEnergyPreview);
+$('analyze-image').addEventListener('click',async()=>{if(!currentImage){toast('Choose an image first','Upload or drop a classroom image before analysis.');return}const button=$('analyze-image');button.disabled=true;button.textContent='Loading detector…';setStepState('step2-state','Loading detector','active');setModelStatus('Loading the people detector. The first analysis needs internet access; the model may be cached by your browser for later use.','loading');try{const model=await ensureDetectionModel();button.textContent='Looking for people…';setStepState('step2-state','Analyzing','active');setModelStatus('Detector ready. Looking for visible people in the image…','loading');const predictions=await model.detect(currentImage,30,0.35);const people=predictions.filter(p=>p.class==='person'&&p.score>=0.35);const avg=people.length?people.reduce((sum,p)=>sum+p.score,0)/people.length:0;drawBaseImage();const canvas=$('detection-canvas'),ctx=canvas.getContext('2d'),sx=canvas.width/currentImage.naturalWidth,sy=canvas.height/currentImage.naturalHeight;ctx.lineWidth=Math.max(2,canvas.width/500);ctx.font=`bold ${Math.max(12,Math.min(18,canvas.width/70))}px system-ui,sans-serif`;people.forEach((p,i)=>{const [x,y,w,h]=p.bbox,dx=x*sx,dy=y*sy,dw=w*sx,dh=h*sy;ctx.strokeStyle='#10d6b2';ctx.fillStyle='#10d6b2';ctx.strokeRect(dx,dy,dw,dh);const label=`${Math.round(p.score*100)}% AI confidence`; const pad=5,labelW=ctx.measureText(label).width+pad*2,labelH=Math.max(20,canvas.width/35),ly=Math.max(0,dy-labelH);ctx.fillRect(dx,ly,Math.min(labelW,canvas.width-dx),labelH);ctx.fillStyle='#052c2b';ctx.fillText(label,dx+pad,ly+labelH*.7)});lastImageDetection={count:people.length,averageScore:avg,fileName:currentImageFileName};hasReviewedImageCount=true;$('preview-count').value=people.length;renderRoomEnergyPreview();setStepState('step2-state','Analysis done','done');setStepState('step3-state','Review the count','active');$('apply-guide').className='apply-guide ready';$('apply-guide').innerHTML='<strong>Image analyzed — review this estimate</strong><span>Check the number of people detected. Change it if the model missed someone, then choose the room and apply it.</span>';$('apply-feedback').className='apply-feedback';$('apply-feedback').textContent='Review the detected count before applying it. No equipment action will be taken.';$('detection-summary').innerHTML=`<strong>${people.length} visible person detection${people.length===1?'':'s'}</strong> · average box confidence ${people.length?Math.round(avg*100)+'%':'not available'}<br>${people.length?'The teal label above each detected person shows AI confidence — how sure the model is that it found a person. The room energy-waste score is shown separately below.':'No person was detected above the 35% threshold. Occlusion, lighting, distance, or camera angle may explain a miss; do not interpret this as confirmed vacancy. The room energy score below is separate from person detection confidence.'}`;setModelStatus(`Analysis complete. Phantom detected ${people.length} visible ${people.length===1?'person':'people'}. Check the teal boxes and review the count before applying it.`,'good');log('blue',`Image processed · ${people.length} person detection${people.length===1?'':'s'}`,`${currentImageFileName}; average box confidence ${people.length?Math.round(avg*100)+'%':'not available'}. Estimate awaits human review before it affects a room recommendation.`);toast('Image analysis complete',`${people.length} person detection${people.length===1?'':'s'} found. Check the boxes, then apply the count to a room if appropriate.`)}catch(err){console.error('Phantom image processing failed:',err);setStepState('step2-state','Could not load','warn');setStepState('step3-state','Manual option','active');setModelStatus('The people detector could not start. Check your internet connection and try again. You can still enter a manual count below; it will be labelled as a manual estimate.','warn');$('detection-summary').textContent='AI analysis did not run. You can still type a count yourself, but it will not be labelled as AI image detection.';$('apply-guide').className='apply-guide warn';$('apply-guide').innerHTML='<strong>Image analysis unavailable</strong><span>You can retry after checking internet access, or enter a manual estimate and apply that instead.</span>';toast('Detector did not load','Check your internet connection and try again, or use the manual count.')}finally{button.disabled=!currentImage;button.textContent='Analyze image for people →'}});
+$('apply-camera-count').addEventListener('click',()=>{const r=rooms.find(x=>x.id===$('preview-room').value);const count=Math.max(0,Math.min(200,+$('preview-count').value||0));const usedDetection=!!(lastImageDetection&&count===lastImageDetection.count);const source=usedDetection?(lastImageDetection.count?`COCO-SSD image detector; ${Math.round(lastImageDetection.averageScore*100)}% mean box confidence`:'COCO-SSD image detector; no person detections above 35% threshold'):'Manual/simulated input';r.camera=count;r.cameraSource=source;r.verified=false;hasReviewedImageCount=true;renderRoomEnergyPreview();setStepState('step3-state','Count applied','done');$('apply-guide').className='apply-guide ready';$('apply-guide').innerHTML=`<strong>Count added to ${escapeHtml(r.name)}</strong><span>Phantom will use ${count} ${count===1?'person':'people'} as this room's camera estimate. Other signals still need to be checked.</span>`;$('apply-feedback').className='apply-feedback success';$('apply-feedback').textContent=`Applied ${count} ${count===1?'person':'people'} to ${r.name} using ${usedDetection?'the image detector':'a manual estimate'}. No equipment was switched off.`;log('blue',`Camera estimate applied · ${r.name}`,`${count} occupant estimate from ${source}. Cross-check motion, timetable, and the room itself; no equipment action taken.`);renderAll();toast('Count applied',`${r.name}: ${count} ${count===1?'person':'people'}. Review the room's other signals before any action.`)});
+function openRoom(id){const r=calc(rooms.find(x=>x.id===id));$('modal-title').textContent=r.name;$('modal-subtitle').textContent=`${r.id} · ${r.zone} · decision rationale`;$('modal-content').innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span class="status ${r.status}">${stateLabel(r)}</span><div style="text-align:right"><span style="font-size:10px;color:#8794a6">Waste score</span><div style="font-size:25px;font-weight:800;letter-spacing:-1px">${r.waste}<small style="font-size:11px;color:#8794a6">/100</small></div></div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0"><div style="background:#f5f8fb;border-radius:10px;padding:12px"><div style="font-size:10px;color:#8290a2">Occupancy</div><strong style="display:block;font-size:18px;margin-top:5px">${r.occupancyPct}%</strong></div><div style="background:#f5f8fb;border-radius:10px;padding:12px"><div style="font-size:10px;color:#8290a2">Live load</div><strong style="display:block;font-size:18px;margin-top:5px">${r.load.toFixed(1)} <small style="font-size:10px">kW</small></strong></div><div style="background:#f5f8fb;border-radius:10px;padding:12px"><div style="font-size:10px;color:#8290a2">Above baseline</div><strong style="display:block;font-size:18px;margin-top:5px">${r.excess.toFixed(1)} <small style="font-size:10px">kW</small></strong></div></div><h3 style="font-size:12px;margin:17px 0 8px">Why this room was flagged</h3><ul class="rule-list" style="margin-top:0">${r.reasons.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><div style="background:${r.conflict?'#fff5df':r.status==='waste'?'#e9faf4':'#f3f6fb'};border:1px solid ${r.conflict?'#f7e6be':r.status==='waste'?'#d3f0e6':'#e7edf4'};border-radius:11px;padding:12px;margin-top:14px;font-size:11px;line-height:1.55;color:#5f6f83"><strong style="display:block;margin-bottom:4px;color:#27384d">Suggested next step</strong>${r.status==='override'?'Respect the active human override. No equipment action is recommended during the override window.':r.conflict?'Ask the room owner or facilities staff to verify occupancy. Conflicting signals block a high-confidence waste recommendation.':r.status==='waste'?'Ask a staff member to confirm the room is empty, then consider switching off non-essential equipment under campus policy. This prototype does not control equipment.':'No urgent intervention. Continue monitoring or verify if the readings become unusual.'}</div>`;$('modal-actions').innerHTML=`<button class="btn" id="modal-dismiss">Close</button><button class="btn" id="modal-verify">${r.conflict?'Log verification request':'Request room check'}</button><button class="btn btn-primary" id="modal-override">Set human override</button>`;$('room-modal').classList.add('open');$('modal-dismiss').onclick=closeModal;$('modal-verify').onclick=()=>{log('blue',`Verification requested · ${r.name}`,`Human check requested; no control action taken. Reason: ${r.conflict?'conflicting signals':'confirm equipment state'}.`);closeModal();renderAll();toast('Verification requested',`${r.name} has been added to the human review log.`)};$('modal-override').onclick=()=>{closeModal();$('override-room').value=id;setView('kindness');toast('Room selected',`Choose a reason and duration for ${r.name}.`)}}
+function closeModal(){$('room-modal').classList.remove('open')}$('modal-close').addEventListener('click',closeModal);$('room-modal').addEventListener('click',e=>{if(e.target===$('room-modal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('apply-override').addEventListener('click',()=>{const r=rooms.find(x=>x.id===$('override-room').value),reason=$('override-reason').value,mins=+$('override-duration').value;r.override={reason,expires:Date.now()+mins*60000};log('blue',`Kindness Rule override · ${r.name}`,`${reason}. Override set for ${mins} minutes; recommendations will defer to the human decision.`);renderAll();toast('Human override respected',`${r.name} will be protected for ${mins} minutes. No equipment was switched off.`)});
+$('clear-overrides').addEventListener('click',()=>{rooms.forEach(r=>r.override=null);log('blue','Overrides cleared','Human overrides were reset manually in the demo.');renderAll();toast('Overrides cleared','Normal assessment is active again for all rooms.')});
+$('clear-log').addEventListener('click',()=>{activity=[];renderActivity();toast('Activity log cleared')});$('refresh-btn').addEventListener('click',()=>{$('updated-time').textContent='Updated just now';renderAll();toast('Simulation refreshed','Current demo signals and decisions recalculated.')});
+$('review-all-btn').addEventListener('click',()=>{setView('rooms');$('status-filter').value='verify';renderRoomCards();toast('Review queue opened','Start with rooms whose signals conflict.')});
+function exportCSV(filename,rows){const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Export ready',filename+' downloaded with simulated data labels.')}
+function exportRooms(){const rs=getRooms();exportCSV('phantom-room-intelligence-demo.csv',[['Prototype data — not live measurements'],['Room ID','Room name','Zone','Camera estimate','Motion','Scheduled','Live load kW','Idle baseline kW','Occupancy confidence %','Waste score','Status','Equipment','Conflict','Estimated avoidable kWh/day'],...rs.map(r=>[r.id,r.name,r.zone,r.camera,r.motion?'yes':'no',r.scheduled?'yes':'no',r.load,r.baseline,r.occupancyPct,r.waste,stateLabel(r),r.equipment.join('; '),r.conflict?'yes':'no',r.estimatedKwh])])}
+$('export-btn').addEventListener('click',exportRooms);$('rooms-export').addEventListener('click',exportRooms);$('trends-export').addEventListener('click',()=>exportCSV('phantom-energy-trends-demo.csv',[['Prototype data — illustrative index, not actual kWh'],['Day','Observed load index','Expected baseline index'],...['Wed','Thu','Fri','Sat','Sun','Mon','Tue'].map((d,i)=>[d,[31,36,34,42,38,47,44][i],[28,29,30,31,31,32,31][i]])]));
+$('review-all-btn').setAttribute('aria-label','Review alerts');
+loadRoomSelects();$('signal-room').value='R-204';$('preview-room').value='R-204';$('override-room').value='R-204';loadSignalForm();renderAll();
+// Demo clock label only; seed values remain simulated and are never presented as live telemetry.
+</script>
+</body>
+</html>
